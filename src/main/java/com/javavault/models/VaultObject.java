@@ -19,12 +19,12 @@ public abstract class VaultObject {
     
     //<editor-fold defaultstate="collapsed" desc=" Fields/Properties ">
     
-    private StringProperty titleProperty = new SimpleStringProperty();
-    private StringProperty createdByProperty = new SimpleStringProperty();
-    private StringProperty modifiedByProperty = new SimpleStringProperty();
-    private ObjectProperty<LocalDateTime> createdDatetimeProperty = new SimpleObjectProperty<>();
-    private ObjectProperty<LocalDateTime> modifiedDatetimeProperty = new SimpleObjectProperty<>();
-    private ObjectProperty<UUID> uuidProperty = new SimpleObjectProperty<>();
+    protected StringProperty titleProperty = new SimpleStringProperty();
+    protected StringProperty createdByProperty = new SimpleStringProperty();
+    protected StringProperty modifiedByProperty = new SimpleStringProperty();
+    protected ObjectProperty<LocalDateTime> createdDatetimeProperty = new SimpleObjectProperty<>();
+    protected ObjectProperty<LocalDateTime> modifiedDatetimeProperty = new SimpleObjectProperty<>();
+    protected ObjectProperty<UUID> uuidProperty = new SimpleObjectProperty<>();
     
     StringProperty titleProperty() { return this.titleProperty; }
     StringProperty createdByProperty() { return this.createdByProperty; }
