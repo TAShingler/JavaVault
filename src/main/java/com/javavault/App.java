@@ -1,5 +1,7 @@
 package com.javavault;
 
+import com.javavault.controllers.MainController;
+import com.javavault.viewmodels.MainViewModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,8 +19,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
+        stage.setMinWidth(600);
+        stage.setMinHeight(400);
         stage.show();
     }
 
@@ -27,7 +31,8 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
+        fxmlLoader.setController(new MainController(null, new MainViewModel(null)));
         return fxmlLoader.load();
     }
 

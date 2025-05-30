@@ -5,4 +5,7 @@ module com.javavault {
 
     opens com.javavault to javafx.fxml;
     exports com.javavault;
+    
+    opens com.javavault.controllers to javafx.fxml;
+    exports com.javavault.controllers;
 }
