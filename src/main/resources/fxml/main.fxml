@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox>
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <GridPane hgap="6.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints fillHeight="false" minHeight="10.0" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <HBox spacing="6.0">
+                     <children>
+                        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="32.0" prefWidth="44.0" text="Button">
+                           <graphic>
+                              <StackPane prefHeight="24.0" prefWidth="24.0">
+                                 <children>
+                                    <SVGPath content="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" />
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="6.0" GridPane.columnIndex="2">
+                     <children>
+                        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="32.0" prefWidth="44.0" text="Button">
+                           <graphic>
+                              <StackPane prefHeight="24.0" prefWidth="24.0">
+                                 <children>
+                                    <SVGPath content="M19.78,3H11.22C10.55,3 10,3.55 10,4.22V8H16V14H19.78C20.45,14 21,13.45 21,12.78V4.22C21,3.55 20.45,3 19.78,3M12.44,6.67C11.76,6.67 11.21,6.12 11.21,5.44C11.21,4.76 11.76,4.21 12.44,4.21A1.23,1.23 0 0,1 13.67,5.44C13.67,6.12 13.12,6.67 12.44,6.67M18.56,12.78C17.88,12.79 17.33,12.24 17.32,11.56C17.31,10.88 17.86,10.33 18.54,10.32C19.22,10.31 19.77,10.86 19.78,11.56C19.77,12.23 19.23,12.77 18.56,12.78M18.56,6.67C17.88,6.68 17.33,6.13 17.32,5.45C17.31,4.77 17.86,4.22 18.54,4.21C19.22,4.2 19.77,4.75 19.78,5.44C19.78,6.12 19.24,6.66 18.56,6.67M4.22,10H12.78A1.22,1.22 0 0,1 14,11.22V19.78C14,20.45 13.45,21 12.78,21H4.22C3.55,21 3,20.45 3,19.78V11.22C3,10.55 3.55,10 4.22,10M8.5,14.28C7.83,14.28 7.28,14.83 7.28,15.5C7.28,16.17 7.83,16.72 8.5,16.72C9.17,16.72 9.72,16.17 9.72,15.5A1.22,1.22 0 0,0 8.5,14.28M5.44,11.22C4.77,11.22 4.22,11.77 4.22,12.44A1.22,1.22 0 0,0 5.44,13.66C6.11,13.66 6.66,13.11 6.66,12.44V12.44C6.66,11.77 6.11,11.22 5.44,11.22M11.55,17.33C10.88,17.33 10.33,17.88 10.33,18.55C10.33,19.22 10.88,19.77 11.55,19.77A1.22,1.22 0 0,0 12.77,18.55H12.77C12.77,17.88 12.23,17.34 11.56,17.33H11.55Z" />
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="32.0" prefWidth="44.0" text="Button">
+                           <graphic>
+                              <StackPane prefHeight="24.0" prefWidth="24.0">
+                                 <children>
+                                    <SVGPath content="M15.9,18.45C17.25,18.45 18.35,17.35 18.35,16C18.35,14.65 17.25,13.55 15.9,13.55C14.54,13.55 13.45,14.65 13.45,16C13.45,17.35 14.54,18.45 15.9,18.45M21.1,16.68L22.58,17.84C22.71,17.95 22.75,18.13 22.66,18.29L21.26,20.71C21.17,20.86 21,20.92 20.83,20.86L19.09,20.16C18.73,20.44 18.33,20.67 17.91,20.85L17.64,22.7C17.62,22.87 17.47,23 17.3,23H14.5C14.32,23 14.18,22.87 14.15,22.7L13.89,20.85C13.46,20.67 13.07,20.44 12.71,20.16L10.96,20.86C10.81,20.92 10.62,20.86 10.54,20.71L9.14,18.29C9.05,18.13 9.09,17.95 9.22,17.84L10.7,16.68L10.65,16L10.7,15.31L9.22,14.16C9.09,14.05 9.05,13.86 9.14,13.71L10.54,11.29C10.62,11.13 10.81,11.07 10.96,11.13L12.71,11.84C13.07,11.56 13.46,11.32 13.89,11.15L14.15,9.29C14.18,9.13 14.32,9 14.5,9H17.3C17.47,9 17.62,9.13 17.64,9.29L17.91,11.15C18.33,11.32 18.73,11.56 19.09,11.84L20.83,11.13C21,11.07 21.17,11.13 21.26,11.29L22.66,13.71C22.75,13.86 22.71,14.05 22.58,14.16L21.1,15.31L21.15,16L21.1,16.68M6.69,8.07C7.56,8.07 8.26,7.37 8.26,6.5C8.26,5.63 7.56,4.92 6.69,4.92A1.58,1.58 0 0,0 5.11,6.5C5.11,7.37 5.82,8.07 6.69,8.07M10.03,6.94L11,7.68C11.07,7.75 11.09,7.87 11.03,7.97L10.13,9.53C10.08,9.63 9.96,9.67 9.86,9.63L8.74,9.18L8,9.62L7.81,10.81C7.79,10.92 7.7,11 7.59,11H5.79C5.67,11 5.58,10.92 5.56,10.81L5.4,9.62L4.64,9.18L3.5,9.63C3.41,9.67 3.3,9.63 3.24,9.53L2.34,7.97C2.28,7.87 2.31,7.75 2.39,7.68L3.34,6.94L3.31,6.5L3.34,6.06L2.39,5.32C2.31,5.25 2.28,5.13 2.34,5.03L3.24,3.47C3.3,3.37 3.41,3.33 3.5,3.37L4.63,3.82L5.4,3.38L5.56,2.19C5.58,2.08 5.67,2 5.79,2H7.59C7.7,2 7.79,2.08 7.81,2.19L8,3.38L8.74,3.82L9.86,3.37C9.96,3.33 10.08,3.37 10.13,3.47L11.03,5.03C11.09,5.13 11.07,5.25 11,5.32L10.03,6.06L10.06,6.5L10.03,6.94Z" />
+                                 </children>
+                              </StackPane>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="300.0" style="-fx-background-color: yellow;" GridPane.columnIndex="1">
+                     <children>
+                        <GridPane alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="24.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="32.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <StackPane prefHeight="16.0" prefWidth="16.0">
+                                 <children>
+                                    <SVGPath content="M 6.5 2.1660156A 4.3333549 4.3333549 0 0 0 2.1660156 6.5A 4.3333549 4.3333549 0 0 0 6.5 10.833984A 4.3333549 4.3333549 0 0 0 9.3183594 9.7910156L 9.5 9.9726562L 9.5 10.5L 12.833984 13.833984L 13.833984 12.833984L 10.5 9.5L 9.9726562 9.5L 9.7910156 9.3183594A 4.3333549 4.3333549 0 0 0 10.833984 6.5A 4.3333549 4.3333549 0 0 0 6.5 2.1660156zM 6.5 3.5A 3.0000153 3.0000153 0 0 1 9.5 6.5A 3.0000153 3.0000153 0 0 1 6.5 9.5A 3.0000153 3.0000153 0 0 1 3.5 6.5A 3.0000153 3.0000153 0 0 1 6.5 3.5z" />
+                                 </children>
+                              </StackPane>
+                              <TextField style="-fx-background-color: transparent;" GridPane.columnIndex="1" />
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <StackPane mouseTransparent="true" styleClass="svg-stack-pane-small">
+                                       <children>
+                                          <SVGPath content="M 4.6660156 2C 4.262174 2 3.8313357 2.2498562 3.6074219 2.5859375L 0 8L 3.6074219 13.40625C 3.8321265 13.743103 4.2610933 14 4.6660156 14L 14.677734 14C 15.410664 14 16 13.410666 16 12.677734L 16 3.3222656C 16 2.5893336 15.410666 2 14.677734 2L 4.6660156 2zM 6.9394531 4.6660156L 9.3339844 7.0605469L 11.726562 4.6660156L 12.666016 5.6074219L 10.273438 8L 12.666016 10.392578L 11.726562 11.333984L 9.3339844 8.9394531L 6.9394531 11.333984L 6 10.392578L 8.3925781 8L 6 5.6074219L 6.9394531 4.6660156z" mouseTransparent="true" styleClass="svg" />
+                                       </children>
+                                    </StackPane>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <GridPane hgap="4.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" spacing="12.0" GridPane.columnIndex="1">
+               <children>
+                  <HBox alignment="CENTER" spacing="4.0">
+                     <children>
+                        <StackPane prefHeight="16.0" prefWidth="16.0">
+                           <children>
+                              <SVGPath content="M 2.9902344 2C 2.4419671 2 2 2.4419671 2 2.9902344L 2 11C 2 11.548267 2.4419671 11.990234 2.9902344 11.990234L 15.009766 11.990234C 15.558033 11.990234 16 11.548267 16 11L 16 4C 16 3.4517327 15.558032 3.0107094 15.009766 3.0097656L 9 3L 8 2L 2.9902344 2zM 1 4C 0.53438834 4 0 4.3553291 0 4.9902344L 0 13.009766C 0 13.558033 0.44196711 14 0.99023438 14L 13.009766 14C 13.644666 14 14 13.465618 14 13L 1 13L 1 4z" styleClass="svg" />
+                           </children>
+                        </StackPane>
+                        <Label text="5" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="2.0">
+                     <children>
+                        <StackPane prefHeight="16.0" prefWidth="16.0">
+                           <children>
+                              <SVGPath content="M 6.5 1A 3.5 3.5 0 0 0 3 4.5A 3.5 3.5 0 0 0 6.5 8A 3.5 3.5 0 0 0 7.7558594 7.7558594L 9 9L 11 9L 11 11L 13 11L 13 13L 15 13L 15 11L 9.7558594 5.7558594A 3.5 3.5 0 0 0 10 4.5A 3.5 3.5 0 0 0 6.5 1zM 5.5 2.5A 1 1 0 0 1 6.5 3.5A 1 1 0 0 1 5.5 4.5A 1 1 0 0 1 4.5 3.5A 1 1 0 0 1 5.5 2.5zM 2.578125 3.578125C 1.5941085 4.2246444 1.0010959 5.3225984 1 6.5C 1 8.4329966 2.5670034 10 4.5 10C 4.9300642 9.9964708 5.3557951 9.9137082 5.7558594 9.7558594L 7 11L 9 11L 9 13L 11 13L 11 15L 13 15L 13 14L 12 14L 12 12L 10 12L 10 10L 8 10L 6.7558594 8.7558594C 6.3557951 8.9137082 5.9300642 8.9964708 5.5 9C 3.5670034 9 2 7.4329966 2 5.5C 2.000967 4.8166752 2.201939 4.1485791 2.578125 3.578125z" styleClass="svg" />
+                           </children>
+                        </StackPane>
+                        <Label text="150" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox fx:id="clearClipboardPane" alignment="CENTER_RIGHT" spacing="4.0" GridPane.columnIndex="2">
+               <children>
+                  <Label text="Clearing clipboard..." />
+                  <ProgressBar fx:id="progressBarClearClipboard" prefWidth="100.0" progress="0.0" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </GridPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #b0c4de 0%, #7a9cc7 100%);" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
