@@ -7,6 +7,7 @@ package com.javavault.viewmodels;
 
 import com.javavault.controllers.ControllerBase;
 import com.javavault.controllers.MainController;
+import com.javavault.controllers.UnlockController;
 import java.io.IOException;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -22,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -79,6 +81,10 @@ public class MainViewModel extends ViewModelBase {
             this.childViewChildrenList.clear();
         
         this.childViewChildrenList.add(val);
+        AnchorPane.setTopAnchor(val, 12d);
+        AnchorPane.setRightAnchor(val, 12d);
+        AnchorPane.setBottomAnchor(val, 12d);
+        AnchorPane.setLeftAnchor(val, 12d);
     }
     
     //</editor-fold>
@@ -99,7 +105,8 @@ public class MainViewModel extends ViewModelBase {
         System.out.println("showAppSettings() called...");
         Platform.runLater(() -> {
             try {
-                setChildView(loadChildView("main", new MainController(null, new MainViewModel())));
+                var vm = new UnlockViewModel();
+                setChildView(loadChildView("unlock", new UnlockController(null, vm)));
             } catch (IOException ex) {
                 System.getLogger(MainViewModel.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
