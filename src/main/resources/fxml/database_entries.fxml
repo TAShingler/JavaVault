@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
+
+
+<GridPane fx:id="rootPane" vgap="4.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <AnchorPane>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnCreateEntry" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+                     <graphic>
+                        <StackPane prefHeight="24.0" prefWidth="24.0">
+                           <children>
+                              <SVGPath content="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+                           </children>
+                        </StackPane>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnEditEntry" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+                     <graphic>
+                        <StackPane prefHeight="24.0" prefWidth="24.0">
+                           <children>
+                              <SVGPath content="M19,3A2,2 0 0,1 21,5V19C21,20.11 20.1,21 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M16.7,9.35C16.92,9.14 16.92,8.79 16.7,8.58L15.42,7.3C15.21,7.08 14.86,7.08 14.65,7.3L13.65,8.3L15.7,10.35L16.7,9.35M7,14.94V17H9.06L15.12,10.94L13.06,8.88L7,14.94Z" />
+                           </children>
+                        </StackPane>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnDeleteEntry" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+                     <graphic>
+                        <StackPane prefHeight="24.0" prefWidth="24.0">
+                           <children>
+                              <SVGPath content="M 5,3C 3.8919999,3 3,3.8919999 3,5v 14c 0,1.108 0.8919999,2 2,2h 14c 1.108,0 2,-0.892 2,-2V 5C 21,3.8919999 20.108,3 19,3Zm 5.5,3h 3l 1,1H 17V 9H 7V 7H 9.5ZM 8,10h 8v 7c 0,0.552285 -0.447715,1 -1,1H 9C 8.4477153,18 8,17.552285 8,17Z" />
+                           </children>
+                        </StackPane>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="200.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Filter:" />
+                  <ChoiceBox fx:id="choiceBoxFilters" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblViewEntryItems" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <columns>
+            <TableColumn fx:id="tblColIcon" maxWidth="36.0" minWidth="36.0" prefWidth="36.0" resizable="false" />
+            <TableColumn fx:id="tblColTitle" text="Title" />
+            <TableColumn fx:id="tblColUsername" text="Username" />
+            <TableColumn fx:id="tblColPassword" text="Password" />
+            <TableColumn fx:id="tblColAddress" text="Address" />
+            <TableColumn fx:id="tblColCreatedBy" text="Created By" />
+            <TableColumn fx:id="tblColCreatedDate" text="Created Date" />
+            <TableColumn fx:id="tblColModifiedBy" text="Modified By" />
+            <TableColumn fx:id="tblColModifiedDate" text="Modified Date" />
+            <TableColumn fx:id="tblColFavorite" text="Favorite" />
+         </columns>
+         <contextMenu>
+            <ContextMenu>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                  <Menu mnemonicParsing="false" text="Unspecified Menu">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                     </items>
+                  </Menu>
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</GridPane>

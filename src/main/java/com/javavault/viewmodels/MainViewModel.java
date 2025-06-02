@@ -6,6 +6,7 @@
 package com.javavault.viewmodels;
 
 import com.javavault.controllers.ControllerBase;
+import com.javavault.controllers.DatabaseController;
 import com.javavault.controllers.MainController;
 import com.javavault.controllers.UnlockController;
 import java.io.IOException;
@@ -100,6 +101,14 @@ public class MainViewModel extends ViewModelBase {
     }
     public void showPasswordGenerator(ActionEvent evt) {
         System.out.println("showPasswordGenerator() called...");
+        Platform.runLater(() -> {
+            try {
+                var vm = new DatabaseViewModel(this);
+                setChildView(loadChildView("database", new DatabaseController(null, vm)));
+            } catch (IOException ex) {
+                System.getLogger(MainViewModel.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        });
     }
     public void showAppSettings(ActionEvent evt) {
         System.out.println("showAppSettings() called...");

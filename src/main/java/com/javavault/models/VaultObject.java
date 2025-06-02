@@ -37,15 +37,15 @@ public abstract class VaultObject {
     protected ObjectProperty<LocalDateTime> modifiedDatetimeProperty = new SimpleObjectProperty<>();
     protected ObjectProperty<UUID> uuidProperty = new SimpleObjectProperty<>();
     
-    IntegerProperty rowIdProperty() { return this.rowIrdProperty; }
-    StringProperty titleProperty() { return this.titleProperty; }
-    StringProperty createdByProperty() { return this.createdByProperty; }
-    StringProperty modifiedByProperty() { return this.modifiedByProperty; }
-    StringProperty formattedCreatedDatetimeProperty() { return this.formattedCreatedDatetimeProperty; }
-    StringProperty formattedModifiedDatetimeProperty() { return this.formattedModifiedDatetimeProperty; }
-    ObjectProperty<LocalDateTime> createdDatetimeProperty() { return this.createdDatetimeProperty; }
-    ObjectProperty<LocalDateTime> modifiedDatetimeProperty() { return this.modifiedDatetimeProperty; }
-    ObjectProperty<UUID> uuidProperty() { return this.uuidProperty; }
+    public IntegerProperty rowIdProperty() { return this.rowIrdProperty; }
+    public StringProperty titleProperty() { return this.titleProperty; }
+    public StringProperty createdByProperty() { return this.createdByProperty; }
+    public StringProperty modifiedByProperty() { return this.modifiedByProperty; }
+    public StringProperty formattedCreatedDatetimeProperty() { return this.formattedCreatedDatetimeProperty; }
+    public StringProperty formattedModifiedDatetimeProperty() { return this.formattedModifiedDatetimeProperty; }
+    public ObjectProperty<LocalDateTime> createdDatetimeProperty() { return this.createdDatetimeProperty; }
+    public ObjectProperty<LocalDateTime> modifiedDatetimeProperty() { return this.modifiedDatetimeProperty; }
+    public ObjectProperty<UUID> uuidProperty() { return this.uuidProperty; }
     
     //</editor-fold>
     

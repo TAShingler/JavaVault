@@ -26,12 +26,12 @@ public class VaultEntry extends VaultObject {
     private StringProperty notesProperty = new SimpleStringProperty();
     private BooleanProperty favoriteProperty = new SimpleBooleanProperty();
     
-    StringProperty iconStringProperty() { return this.iconStringProperty; }
-    StringProperty usernameProperty() { return this.usernameProperty; }
-    StringProperty passwordProperty() { return this.passwordProperty; }
-    StringProperty addressProperty() { return this.addressProperty; }
-    StringProperty notesProperty() { return this.notesProperty; }
-    BooleanProperty favoriteProperty() { return this.favoriteProperty; }
+    public StringProperty iconStringProperty() { return this.iconStringProperty; }
+    public StringProperty usernameProperty() { return this.usernameProperty; }
+    public StringProperty passwordProperty() { return this.passwordProperty; }
+    public StringProperty addressProperty() { return this.addressProperty; }
+    public StringProperty notesProperty() { return this.notesProperty; }
+    public BooleanProperty favoriteProperty() { return this.favoriteProperty; }
     
     //</editor-fold>
     
@@ -50,7 +50,7 @@ public class VaultEntry extends VaultObject {
         setNotes(notes);
         setFavorite(favorite);
     }
-    public VaultEntry(String iconString, String username, String password, String address, String notes, boolean favorite, String title, String createdBy, String modifiedBy,
+    public VaultEntry(String iconString, String title, String username, String password, String address, String notes, boolean favorite, String createdBy, String modifiedBy,
             LocalDateTime createdDatetime, LocalDateTime modifiedDatetime, UUID uuid) {
         super(title, createdBy, modifiedBy, createdDatetime, modifiedDatetime, uuid);
         
@@ -61,7 +61,7 @@ public class VaultEntry extends VaultObject {
         setNotes(notes);
         setFavorite(favorite);
     }
-    public VaultEntry(int rowId, String iconString, String username, String password, String address, String notes, boolean favorite, String title, String createdBy, String modifiedBy,
+    public VaultEntry(int rowId, String iconString, String title, String username, String password, String address, String notes, boolean favorite, String createdBy, String modifiedBy,
             LocalDateTime createdDatetime, LocalDateTime modifiedDatetime, UUID uuid) {
         super(rowId, title, createdBy, modifiedBy, createdDatetime, modifiedDatetime, uuid);
         
