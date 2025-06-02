@@ -5,15 +5,19 @@
 
 package com.javavault.controllers;
 
-import com.javavault.viewmodels.MainViewModel;
+import com.javavault.viewmodels.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -106,8 +110,39 @@ public class MainController extends ControllerBase {
         //bindings between controls
         this.btnClearSearch.visibleProperty().bind(this.txtFldSearch.textProperty().isEmpty().not());
         
-        //viewmodel listeners
-        this.viewModel.setChildrenViewChildrenList(this.paneChildView.getChildren());
+        this.viewModel.childViewModelProperty().addListener((obsVal, oldVal, newVal) -> {
+            if (newVal == null) return;
+            
+            if (newVal instanceof UnlockViewModel vm) {
+                Platform.runLater(() -> {
+                    try {
+                        setChildView(loadChildView("unlock", new UnlockController(this, vm)));
+                    } catch (IOException ex) {
+                        System.getLogger(MainController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    }
+                });
+            }
+            
+            if (newVal instanceof DatabaseViewModel vm) {
+                Platform.runLater(() -> {
+                    try {
+                        setChildView(loadChildView("database", new DatabaseController(this, vm)));
+                    } catch (IOException ex) {
+                        System.getLogger(MainController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    }
+                });
+            }
+            
+            if (newVal instanceof SettingsViewModel vm) {
+                Platform.runLater(() -> {
+                    try {
+                        setChildView(loadChildView("settings", new SettingsController(this, vm)));
+                    } catch (IOException ex) {
+                        System.getLogger(getClass().getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    }
+                });
+            }
+        });
     }
     
     //<editor-fold defaultstate="collapsed" desc=" Accessors (get) ">
@@ -124,7 +159,20 @@ public class MainController extends ControllerBase {
     
     //<editor-fold defaultstate="collapsed" desc=" Other Methods ">
     
-    
+    private Parent loadChildView(String fxml, ControllerBase controller) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + fxml + ".fxml"));
+        loader.setController(controller);
+        return loader.load();
+    }
+    private void setChildView(Parent childView) {
+        this.paneChildView.getChildren().clear();
+        this.paneChildView.getChildren().add(childView);
+        
+        AnchorPane.setTopAnchor(childView, 12d);
+        AnchorPane.setRightAnchor(childView, 12d);
+        AnchorPane.setBottomAnchor(childView, 12d);
+        AnchorPane.setLeftAnchor(childView, 12d);
+    }
     
     //</editor-fold>
 

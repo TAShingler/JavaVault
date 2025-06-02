@@ -60,7 +60,13 @@ public class UnlockViewModel extends ViewModelBase {
     
     public void unlockDatabase(ActionEvent evt) {
 //        System.out.println("unlockDatabase() called...");
-        System.out.println("Image == null: " + getImage().getUrl());
+        if (this.getParentViewModel() instanceof MainViewModel vm) {
+            try {
+                vm.tryUnlockDatabase(getPassword());
+            } catch (Exception ex) {
+                
+            }
+        }
     }
     public void closeApp(ActionEvent evt) {
         System.exit(0);

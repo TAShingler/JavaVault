@@ -12,9 +12,10 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #f9f9f9; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" spacing="8.0">
          <children>
@@ -40,7 +41,15 @@
                <children>
                   <TextField fx:id="txtFldPassword" />
                   <PasswordField fx:id="pwdFldPassword" />
-                  <ToggleButton fx:id="tglBtnShowPassword" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="1" />
+                  <ToggleButton fx:id="tglBtnShowPassword" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="1">
+                     <graphic>
+                        <StackPane prefHeight="16.0" prefWidth="16.0">
+                           <children>
+                              <SVGPath fx:id="svgEye" content="M 8,3 C 5.1325639,3 1.9999981,5.0000059 1,8 c 0.9999981,2.999994 4.1325638,5 7,5 2.867436,0 6.000002,-2.000006 7,-5 C 14.000002,5.0000059 10.867436,3 8,3 Z M 8,5 A 3.0000002,3.0000002 0 0 1 11,8 3.0000002,3.0000002 0 0 1 8,11 3.0000002,3.0000002 0 0 1 5,8 3.0000002,3.0000002 0 0 1 8,5 Z M 8,6 A 2,2 0 0 0 6,8 2,2 0 0 0 8,10 2,2 0 0 0 10,8 2,2 0 0 0 8,6 Z" visible="false" />
+                              <SVGPath fx:id="svgEyeOff" content="M 2,2 1.25,2.75 3.2734375,4.7734375 C 2.2498442,5.6131684 1.4286814,6.7139557 1,8 c 0.999996,2.999988 4.1325698,5 7,5 0.956647,0 1.9425093,-0.222771 2.869141,-0.630859 L 13.25,14.75 14,14 11.851562,11.851562 10.121094,10.121094 9.4140625,9.4140625 6.5859375,6.5859375 5.8789062,5.8789062 4.1484375,4.1484375 Z M 8,3 C 7.0438668,3 6.0588953,3.2248449 5.1328125,3.6328125 L 6.7714844,5.2714844 A 3.0000002,3.0000002 0 0 1 8,5 3.0000002,3.0000002 0 0 1 11,8 3.0000002,3.0000002 0 0 1 10.728516,9.2285156 l 1.998046,1.9980464 C 13.750134,10.387133 14.571357,9.2859276 15,8 14.000004,5.0000119 10.86743,3 8,3 Z M 8,6 A 2,2 0 0 0 7.5585938,6.0585938 L 9.9414062,8.4414062 A 2,2 0 0 0 10,8 2,2 0 0 0 8,6 Z M 5.2714844,6.7714844 6.0585938,7.5585938 A 2,2 0 0 0 6,8 2,2 0 0 0 8,10 2,2 0 0 0 8.4414062,9.9414062 L 9.2285156,10.728516 A 3.0000002,3.0000002 0 0 1 8,11 3.0000002,3.0000002 0 0 1 5,8 3.0000002,3.0000002 0 0 1 5.2714844,6.7714844 Z" />
+                           </children>
+                        </StackPane>
+                     </graphic></ToggleButton>
                </children>
             </GridPane>
             <HBox alignment="CENTER" spacing="6.0">

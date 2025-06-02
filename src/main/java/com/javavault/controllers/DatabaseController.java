@@ -6,13 +6,13 @@ package com.javavault.controllers;
 
 import com.javavault.models.VaultEntry;
 import com.javavault.models.VaultGroup;
+import com.javavault.ui.GroupListCell;
+import com.javavault.ui.IconTableCell;
 import com.javavault.viewmodels.DatabaseViewModel;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
@@ -104,13 +104,15 @@ public class DatabaseController extends ControllerBase {
         this.choiceBoxFilters.setOnAction(evt -> this.viewModel.filterVaultEntryTable(evt));
         
         this.listViewGroups.setItems(this.viewModel.getGroupsList());
-        this.tblViewEntryItems.setItems(this.viewModel.getEntryList());
+        this.tblViewEntryItems.itemsProperty().bind(this.viewModel.filterableEntryListProperty());//.setItems(this.viewModel.getEntryList());
         this.choiceBoxFilters.setItems(this.viewModel.getFiltersList());
+        
+        this.listViewGroups.setCellFactory(cell -> new GroupListCell());
         
         this.tblColIcon.setReorderable(false);
         this.tblColIcon.setResizable(false);
         this.tblColIcon.setCellValueFactory(data -> data.getValue().iconStringProperty());
-//        this.tblColIcon.setCellFactory(cell -> new TableCell());    //use custom TableCell for icon images
+        this.tblColIcon.setCellFactory(cell -> new IconTableCell());    //use custom TableCell for icon images
         
         this.tblColTitle.setCellValueFactory(data -> data.getValue().titleProperty());
         this.tblColUsername.setCellValueFactory(data -> data.getValue().usernameProperty());
@@ -133,14 +135,13 @@ public class DatabaseController extends ControllerBase {
                     if (cellData == null) {
                         this.setGraphic(null);
                     } else {
-                        if (cellData.booleanValue() == true) {
+                        if (cellData == true) {
                             this.bounds.getChildren().clear();
-                            this.bounds.setPrefWidth(16);
-                            this.bounds.setPrefHeight(16);
+                            this.bounds.setPrefSize(24d, 24d);
+//                            this.bounds.setMinSize(USE_PREF_SIZE, USE_PREF_SIZE);
+//                            this.bounds.setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE);
                             
-                            this.check.setContent("M 20.5,8 9,19.5 3.5,14 5,12.5 l 4,4 10,-10 z");
-                            this.check.setScaleX(0.666666);
-                            this.check.setScaleY(0.666666);
+                            this.check.setContent("M 3,8 6,11 13,4 14,5 6,13 2,9 Z");
                             this.bounds.getChildren().add(this.check);
                             
                             this.setGraphic(this.bounds);
@@ -148,6 +149,8 @@ public class DatabaseController extends ControllerBase {
                             this.setGraphic(null);
                         }
                     }
+                    
+                    this.setAlignment(Pos.CENTER);
                 }
             };
         });
@@ -191,6 +194,5 @@ public class DatabaseController extends ControllerBase {
     
     
     //</editor-fold>
-    
     
 }

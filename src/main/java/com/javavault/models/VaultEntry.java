@@ -77,23 +77,23 @@ public class VaultEntry extends VaultObject {
     
     //<editor-fold defaultstate="collapsed" desc=" Accessors (get) ">
     
-    String getIconString() { return this.iconStringProperty().getValue(); }
-    String getUsername() { return this.usernameProperty().getValue(); }
-    String getPassword() { return this.passwordProperty().getValue(); }
-    String getAddress() { return this.addressProperty().getValue(); }
-    String getNotes() { return this.notesProperty().getValue(); }
-    boolean getFavorite() { return this.favoriteProperty().getValue(); }
+    public final String getIconString() { return this.iconStringProperty().getValue(); }
+    public final String getUsername() { return this.usernameProperty().getValue(); }
+    public final String getPassword() { return this.passwordProperty().getValue(); }
+    public final String getAddress() { return this.addressProperty().getValue(); }
+    public final String getNotes() { return this.notesProperty().getValue(); }
+    public final boolean getFavorite() { return this.favoriteProperty().getValue(); }
     
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc=" Mutators (set) ">
     
-    void setIconString(String val) { this.iconStringProperty().setValue(val); }
-    void setUsername(String val) { this.usernameProperty().setValue(val); }
-    void setPassword(String val) { this.passwordProperty().setValue(val); }
-    void setAddress(String val) { this.addressProperty().setValue(val); }
-    void setNotes(String val) { this.notesProperty().setValue(val); }
-    void setFavorite(boolean val) { this.favoriteProperty().setValue(val); }
+    public final void setIconString(String val) { this.iconStringProperty().setValue(val); }
+    public final void setUsername(String val) { this.usernameProperty().setValue(val); }
+    public final void setPassword(String val) { this.passwordProperty().setValue(val); }
+    public final void setAddress(String val) { this.addressProperty().setValue(val); }
+    public final void setNotes(String val) { this.notesProperty().setValue(val); }
+    public final void setFavorite(boolean val) { this.favoriteProperty().setValue(val); }
     
     //</editor-fold>
     

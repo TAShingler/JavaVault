@@ -25,7 +25,7 @@ public abstract class VaultObject {
     
     //<editor-fold defaultstate="collapsed" desc=" Fields/Properties ">
     
-    private DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+    private final DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
     
     protected IntegerProperty rowIrdProperty = new SimpleIntegerProperty();
     protected StringProperty titleProperty = new SimpleStringProperty();
@@ -83,33 +83,33 @@ public abstract class VaultObject {
     
     //<editor-fold defaultstate="collapsed" desc=" Accessors (get) ">
     
-    int getRowId() { return this.rowIdProperty().getValue(); }
-    String getTitle() { return this.titleProperty().getValue(); }
-    String getCreatedBy() { return this.createdByProperty().getValue(); }
-    String getModifiedBy() { return this.modifiedByProperty().getValue(); }
-    String getFormattedCreatedDatetime() { return this.formattedCreatedDatetimeProperty().getValue(); }
-    String getFormattedModifiedDatetime() { return this.formattedModifiedDatetimeProperty().getValue(); }
-    LocalDateTime getCreatedDatetime() { return this.createdDatetimeProperty().getValue(); }
-    LocalDateTime getModifiedDatetime() { return this.modifiedDatetimeProperty().getValue(); }
-    UUID getUUID() { return this.uuidProperty().getValue(); }
+    public final int getRowId() { return this.rowIdProperty().getValue(); }
+    public final String getTitle() { return this.titleProperty().getValue(); }
+    public final String getCreatedBy() { return this.createdByProperty().getValue(); }
+    public final String getModifiedBy() { return this.modifiedByProperty().getValue(); }
+    public final String getFormattedCreatedDatetime() { return this.formattedCreatedDatetimeProperty().getValue(); }
+    public final String getFormattedModifiedDatetime() { return this.formattedModifiedDatetimeProperty().getValue(); }
+    public final LocalDateTime getCreatedDatetime() { return this.createdDatetimeProperty().getValue(); }
+    public final LocalDateTime getModifiedDatetime() { return this.modifiedDatetimeProperty().getValue(); }
+    public final UUID getUUID() { return this.uuidProperty().getValue(); }
     
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc=" Mutators (set) ">
     
-    void setRowId(int val) { this.rowIdProperty().setValue(val); }
-    void setTitle(String val) { this.titleProperty().setValue(val); }
-    void setCreatedBy(String val) { this.createdByProperty().setValue(val); }
-    void setModifiedBy(String val) { this.modifiedByProperty().setValue(val); }
-    void setCreatedDatetime(LocalDateTime val) {
+    public final void setRowId(int val) { this.rowIdProperty().setValue(val); }
+    public final void setTitle(String val) { this.titleProperty().setValue(val); }
+    public final void setCreatedBy(String val) { this.createdByProperty().setValue(val); }
+    public final void setModifiedBy(String val) { this.modifiedByProperty().setValue(val); }
+    public final void setCreatedDatetime(LocalDateTime val) {
         this.createdDatetimeProperty().setValue(val);
         this.formattedCreatedDatetimeProperty.setValue(val.format(this.dateTimeFormat));
     }
-    void setModifiedDatetime(LocalDateTime val) {
+    public final void setModifiedDatetime(LocalDateTime val) {
         this.modifiedDatetimeProperty().setValue(val);
         this.formattedModifiedDatetimeProperty.setValue(val.format(this.dateTimeFormat));
     }
-    void setUUID(UUID val) { this.uuidProperty().setValue(val); }
+    public final void setUUID(UUID val) { this.uuidProperty().setValue(val); }
     
     //</editor-fold>
     

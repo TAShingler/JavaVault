@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.shape.SVGPath;
 
 /**
  *
@@ -45,6 +45,9 @@ public class UnlockController extends ControllerBase {
     
     @FXML private Button btnUnlock;
     @FXML private Button btnClose;
+    
+    @FXML private SVGPath svgEye;
+    @FXML private SVGPath svgEyeOff;
     
     //</editor-fold>
     
@@ -82,6 +85,8 @@ public class UnlockController extends ControllerBase {
         //bindings between UI controls
         this.txtFldPassword.visibleProperty().bind(this.tglBtnShowPassword.selectedProperty());
         this.pwdFldPassword.visibleProperty().bind(this.tglBtnShowPassword.selectedProperty().not());
+        this.svgEye.visibleProperty().bind(this.tglBtnShowPassword.selectedProperty());
+        this.svgEyeOff.visibleProperty().bind(this.tglBtnShowPassword.selectedProperty().not());
     }
     
     //<editor-fold defaultstate="collapsed" desc=" Accessors (get) ">

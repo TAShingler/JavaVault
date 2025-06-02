@@ -9,15 +9,14 @@ import com.javavault.models.VaultGroup;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
@@ -47,6 +46,7 @@ public class DatabaseViewModel extends ViewModelBase {
     private StringProperty selectedFilterProperty = new SimpleStringProperty();
     private ObjectProperty<Pane> leftPaneProperty = new SimpleObjectProperty();
     private ObjectProperty<Pane> rightPantProperty = new SimpleObjectProperty();
+    private ObjectProperty<ObservableList<VaultEntry>> filterableEntryListProperty = new SimpleObjectProperty();
     
     public BooleanProperty leftPaneVisibleProperty() { return this.leftPaneVisibleProperty; }
     public ObjectProperty<VaultGroup> selectedGroupProperty() { return this.selectedGroupProperty; }
@@ -54,6 +54,7 @@ public class DatabaseViewModel extends ViewModelBase {
     public StringProperty slectedFilterProperty() { return this.selectedFilterProperty; }
     public ObjectProperty<Pane> leftPaneProperty() { return this.leftPaneProperty; }
     public ObjectProperty<Pane> rightPaneProperty() { return this.rightPantProperty; }
+    public ObjectProperty<ObservableList<VaultEntry>> filterableEntryListProperty() { return this.filterableEntryListProperty; }
     
     //</editor-fold>
     
@@ -70,12 +71,12 @@ public class DatabaseViewModel extends ViewModelBase {
     private void init() {
         this.entryList.addAll(
                 new VaultEntry(
-                        "icon",
-                        "title",
-                        "username",
-                        "password",
-                        "address",
-                        "notes",
+                        "icon1",
+                        "title1",
+                        "username1",
+                        "password1",
+                        "address1",
+                        "notes1",
                         true,
                         System.getProperty("user.name"),
                         System.getProperty("user.name"),
@@ -84,12 +85,12 @@ public class DatabaseViewModel extends ViewModelBase {
                         UUID.randomUUID()
                 ),
                 new VaultEntry(
-                        "icon",
-                        "title",
-                        "username",
-                        "password",
-                        "address",
-                        "notes",
+                        "icon2",
+                        "title2",
+                        "username2",
+                        "password2",
+                        "address2",
+                        "notes2",
                         true,
                         System.getProperty("user.name"),
                         System.getProperty("user.name"),
@@ -98,12 +99,12 @@ public class DatabaseViewModel extends ViewModelBase {
                         UUID.randomUUID()
                 ),
                 new VaultEntry(
-                        "icon",
-                        "title",
-                        "username",
-                        "password",
-                        "address",
-                        "notes",
+                        "icon3",
+                        "title3",
+                        "username3",
+                        "password3",
+                        "address3",
+                        "notes3",
                         true,
                         System.getProperty("user.name"),
                         System.getProperty("user.name"),
@@ -112,6 +113,35 @@ public class DatabaseViewModel extends ViewModelBase {
                         UUID.randomUUID()
                 )
         );
+        
+        this.groupsList.addAll(
+                new VaultGroup(
+                        "group1",
+                        System.getProperty("user.name"),
+                        System.getProperty("user.name"),
+                        LocalDateTime.now(),
+                        LocalDateTime.now(),
+                        UUID.randomUUID()
+                ),
+                new VaultGroup(
+                        "group3",
+                        System.getProperty("user.name"),
+                        System.getProperty("user.name"),
+                        LocalDateTime.now(),
+                        LocalDateTime.now(),
+                        UUID.randomUUID()
+                ),
+                new VaultGroup(
+                        "group2",
+                        System.getProperty("user.name"),
+                        System.getProperty("user.name"),
+                        LocalDateTime.now(),
+                        LocalDateTime.now(),
+                        UUID.randomUUID()
+                )
+        );
+        
+        this.filterableEntryListProperty.setValue(this.entryList.filtered(null));
     }
     
     //</editor-fold>
@@ -169,7 +199,11 @@ public class DatabaseViewModel extends ViewModelBase {
     
     //<editor-fold defaultstate="collapsed" desc=" Other Methods ">
     
-    
+    public void filterVaultEntries(String filter) {
+        var filteredList = this.entryList.filtered(item -> item.titleProperty().getValue().toLowerCase().contains(filter.toLowerCase()));
+        System.out.println("filteredList.size = " + filteredList.size());
+        this.filterableEntryListProperty.setValue(filteredList);
+    }
     
     //</editor-fold>
     
