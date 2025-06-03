@@ -7,6 +7,7 @@ package com.javavault.viewmodels;
 
 import com.javavault.controllers.ControllerBase;
 import java.io.IOException;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -27,7 +28,7 @@ public class MainViewModel extends ViewModelBase {
     
     //<editor-fold defaultstate="collapsed" desc=" Fields/Properties ">
     
-    private BooleanProperty unlockedProperty = new SimpleBooleanProperty(false);
+    private BooleanProperty unlockedProperty = new SimpleBooleanProperty(true);
     private StringProperty searchTextProperty = new SimpleStringProperty();
     private IntegerProperty entryCountProperty = new SimpleIntegerProperty(50);
     private IntegerProperty groupCountProperty = new SimpleIntegerProperty(5000);
@@ -56,6 +57,10 @@ public class MainViewModel extends ViewModelBase {
             if (this.getChildViewModel() instanceof DatabaseViewModel vm) {
                 vm.filterVaultEntries(newVal);
             }
+        });
+        
+        Platform.runLater(() -> {
+            setChildViewModel(new UnlockViewModel(this));
         });
     }
     
