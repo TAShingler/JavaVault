@@ -19,6 +19,7 @@ import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
 
 /**
  *
@@ -89,9 +90,6 @@ public class MainViewModel extends ViewModelBase {
     //<editor-fold defaultstate="collapsed" desc=" Event Handlers ">
     
     public void exitApp(ActionEvent evt) { System.exit(0); }
-    public void showAbout(ActionEvent evt) {
-        System.out.println("showAbout() called...");
-    }
     public void lockDatabase(ActionEvent evt) {
         System.out.println("lockDatabase() called...");
         this.setChildViewModel(new UnlockViewModel(this));

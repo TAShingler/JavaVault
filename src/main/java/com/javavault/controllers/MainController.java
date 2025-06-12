@@ -14,10 +14,12 @@ import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -27,6 +29,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -101,7 +106,7 @@ public class MainController extends ControllerBase {
         this.txtFldSearch.textProperty().bindBidirectional(this.viewModel.searchTextProperty());
         
         this.menuItemExit.setOnAction(evt -> this.viewModel.exitApp(evt));
-        this.menuItemAbout.setOnAction(evt -> this.viewModel.showAbout(evt));
+        this.menuItemAbout.setOnAction(evt -> this.showAbout(evt));
         this.btnLockDatabase.setOnAction(evt -> this.viewModel.lockDatabase(evt));
         this.btnPasswordGenerator.setOnAction(evt -> this.viewModel.showPasswordGenerator(evt));
         this.btnSettings.setOnAction(evt -> this.viewModel.showAppSettings(evt));
@@ -154,6 +159,26 @@ public class MainController extends ControllerBase {
     //<editor-fold defaultstate="collapsed" desc=" Mustators (set) ">
     
     
+    
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc=" Event Handlers ">
+    
+    public void showAbout(ActionEvent evt) {
+        Stage stage = new Stage();
+        stage.initOwner(this.paneRoot.getScene().getWindow());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        try {
+            Scene scene = new Scene(loadChildView("about", new AboutController(this, new AboutViewModel(this.viewModel))));
+            stage.setScene(scene);
+            stage.setWidth(500);
+            stage.setHeight(300);
+            stage.setResizable(false);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            System.getLogger(MainController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }
     
     //</editor-fold>
     
